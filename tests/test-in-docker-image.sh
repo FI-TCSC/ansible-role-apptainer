@@ -110,8 +110,8 @@ function test_playbook(){
 }
 function extra_tests(){
 
-    echo "TEST: cat /tmp/singularity/singularity.conf"
-    cat /tmp/singularity/singularity.conf
+    echo "TEST: cat /tmp/apptainer/apptainer.conf"
+    cat /tmp/apptainer/apptainer.conf
 }
 
 

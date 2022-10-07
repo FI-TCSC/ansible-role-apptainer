@@ -1,26 +1,26 @@
 ---
-# tasks file for ansible-role-singularity
+# tasks file for ansible-role-apptainer
 
- - name: install singularity
+ - name: install apptainer
    package:
      name: "{{ item }}"
      state: installed
-   with_items: "{{ singularity_packages }}"
-   when: singularity_install_package|bool
+   with_items: "{{ apptainer_packages }}"
+   when: apptainer_install_package|bool
 
- - name: template in singularity.conf
+ - name: template in apptainer.conf
    template:
-     src: singularity.conf.j2
-     dest: "{{ singularity_config_dir }}/singularity.conf"
+     src: apptainer.conf.j2
+     dest: "{{ apptainer_config_dir }}/apptainer.conf"
      backup: yes
      owner: root
      mode: 0644
 
- - name: template in init if singularity_manage_init_file is True
+ - name: template in init if apptainer_manage_init_file is True
    template:
      src: init.j2
-     dest: "{{ singularity_config_dir }}/init"
+     dest: "{{ apptainer_config_dir }}/init"
      backup: yes
      owner: root
      mode: 0644
-   when: singularity_manage_init_file|bool
+   when: apptainer_manage_init_file|bool

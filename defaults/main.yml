@@ -1,56 +1,56 @@
 ---
-# defaults file for ansible-role-singularity
+# defaults file for ansible-role-apptainer
 
-singularity_install_package: True
-singularity_packages:
-  - singularity
+apptainer_install_package: True
+apptainer_packages:
+  - apptainer
 
-singularity_config_dir: "/etc/singularity"
+apptainer_config_dir: "/etc/apptainer"
 # These settings are defaults in the 2.2.99-0.1.el7 RPM
-singularity_allow_setuid: "yes"
-singularity_enable_overlay: "no"
-singularity_user_bind_control: "yes"
-singularity_container_dir: "/var/lib/singularity/mnt"
-singularity_allow_pid_ns: "yes"
-singularity_allow_user_image: "yes"
-singularity_protected_image_mode: "none"
-singularity_config_passwd: "yes"
-singularity_config_group: "yes"
-singularity_config_resolv_conf: "yes"
-singularity_mount_proc: "yes"
-singularity_mount_sys: "yes"
-singularity_mount_dev: "yes"
-singularity_mount_home: "yes"
-singularity_mount_tmp: "yes"
-singularity_mount_hostfs: "no"
-singularity_bind_path: "/etc/hosts"
-singularity_mount_slave: "yes"
-singularity_singularity_user: "singularity"
+apptainer_allow_setuid: "yes"
+apptainer_enable_overlay: "no"
+apptainer_user_bind_control: "yes"
+apptainer_container_dir: "/var/lib/apptainer/mnt"
+apptainer_allow_pid_ns: "yes"
+apptainer_allow_user_image: "yes"
+apptainer_protected_image_mode: "none"
+apptainer_config_passwd: "yes"
+apptainer_config_group: "yes"
+apptainer_config_resolv_conf: "yes"
+apptainer_mount_proc: "yes"
+apptainer_mount_sys: "yes"
+apptainer_mount_dev: "yes"
+apptainer_mount_home: "yes"
+apptainer_mount_tmp: "yes"
+apptainer_mount_hostfs: "no"
+apptainer_bind_path: "/etc/hosts"
+apptainer_mount_slave: "yes"
+apptainer_apptainer_user: "apptainer"
 # This is not the best way, to change more settings you need
-# to overwrite the whole singularity_settings variable
+# to overwrite the whole apptainer_settings variable
 # in for example group_vars
-singularity_settings:
- - allow setuid = {{ singularity_allow_setuid }}
- - allow pid ns = {{ singularity_allow_pid_ns }}
- - allow user image = {{ singularity_allow_user_image }}
- - protected image mode = {{ singularity_protected_image_mode }}
- - enable overlay = {{ singularity_enable_overlay }}
- - config passwd = {{ singularity_config_passwd }}
- - config group = {{ singularity_config_group }}
- - config resolv_conf = {{ singularity_config_resolv_conf }}
- - mount proc = {{ singularity_mount_proc }}
- - mount sys = {{ singularity_mount_sys }}
- - mount dev = {{ singularity_mount_dev }}
- - mount home = {{ singularity_mount_home }}
- - mount tmp = {{ singularity_mount_tmp }}
- - mount hostfs = {{ singularity_mount_hostfs }}
- - bind path = {{ singularity_bind_path }}
- - user bind control = {{ singularity_user_bind_control }}
- - mount slave = {{ singularity_mount_slave }}
- - container dir = {{ singularity_container_dir }}
- - singularity user = {{ singularity_singularity_user }}
+apptainer_settings:
+ - allow setuid = {{ apptainer_allow_setuid }}
+ - allow pid ns = {{ apptainer_allow_pid_ns }}
+ - allow user image = {{ apptainer_allow_user_image }}
+ - protected image mode = {{ apptainer_protected_image_mode }}
+ - enable overlay = {{ apptainer_enable_overlay }}
+ - config passwd = {{ apptainer_config_passwd }}
+ - config group = {{ apptainer_config_group }}
+ - config resolv_conf = {{ apptainer_config_resolv_conf }}
+ - mount proc = {{ apptainer_mount_proc }}
+ - mount sys = {{ apptainer_mount_sys }}
+ - mount dev = {{ apptainer_mount_dev }}
+ - mount home = {{ apptainer_mount_home }}
+ - mount tmp = {{ apptainer_mount_tmp }}
+ - mount hostfs = {{ apptainer_mount_hostfs }}
+ - bind path = {{ apptainer_bind_path }}
+ - user bind control = {{ apptainer_user_bind_control }}
+ - mount slave = {{ apptainer_mount_slave }}
+ - container dir = {{ apptainer_container_dir }}
+ - apptainer user = {{ apptainer_apptainer_user }}
 
-singularity_manage_init_file: True
-singularity_init_log: '/usr/bin/logger -t {{ singularity_init_log_tag }} "{{ singularity_init_log_message }}"'
-singularity_init_log_tag: "singularity"
-singularity_init_log_message: "user=$USER image=${SINGULARITY_IMAGE:-} image_path=${IMAGE_PATH:-} container=${SINGULARITY_CONTAINER:-} rundir=${SINGULARITY_RUNDIR:-} jobid=${SLURM_JOB_ID:-} cmd=$SINGULARITY_COMMAND"
+apptainer_manage_init_file: True
+apptainer_init_log: '/usr/bin/logger -t {{ apptainer_init_log_tag }} "{{ apptainer_init_log_message }}"'
+apptainer_init_log_tag: "apptainer"
+apptainer_init_log_message: "user=$USER image=${SINGULARITY_IMAGE:-} image_path=${IMAGE_PATH:-} container=${SINGULARITY_CONTAINER:-} rundir=${SINGULARITY_RUNDIR:-} jobid=${SLURM_JOB_ID:-} cmd=$SINGULARITY_COMMAND"

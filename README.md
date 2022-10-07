@@ -1,28 +1,28 @@
-[![Build Status](https://travis-ci.org/CSCfi/ansible-role-singularity.svg?branch=master)](https://travis-ci.org/CSCfi/ansible-role-singularity)
+[![Build Status](https://travis-ci.org/mantti/ansible-role-apptainer.svg?branch=master)](https://travis-ci.org/mantti/ansible-role-apptainer)
 
-ansible-role-singularity
+ansible-role-apptainer
 =========
 
-Install and configure singularity 
+Install and configure former singularity currently apptainer.
 
-https://singularity.lbl.gov
+https://apptainer.org/
 
 Requirements
 ------------
 
-An already configured repository which has the singularity packages.
+An already configured repository which has the apptainer packages.
 
-The WLCG Linux Repo and OpenScienceGrid have singularity packages.
+The WLCG Linux Repo and OpenScienceGrid have apptainer packages.
 
 Role Variables
 --------------
 
 see defaults/main.yml 
 
-the settings in singularity.conf is defined with this list:
+the settings in apptainer.conf is defined with this list:
 
 <pre>
-singularity_settings:
+apptainer_settings:
 </pre>
 
 Dependencies
@@ -36,7 +36,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: ansible-role-singularity, x: 42 }
+         - { role: ansible-role-apptainer, x: 42 }
 
 License
 -------

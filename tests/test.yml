@@ -2,14 +2,14 @@
 - hosts: localhost
   remote_user: root
   vars:
-   - singularity_install_package: False
-   - singularity_config_dir: /tmp/singularity
+   - apptainer_install_package: False
+   - apptainer_config_dir: /tmp/apptainer
 
   pre_tasks:
-   - name: create singularity_config_dir in testing where we do not actually (yet) install singularity
+   - name: create apptainer_config_dir in testing where we do not actually (yet) install apptainer
      file:
-      path: "{{singularity_config_dir }}"
+      path: "{{apptainer_config_dir }}"
       state: directory
   
   roles:
-    - ../ansible-role-singularity
+    - ../ansible-role-apptainer
