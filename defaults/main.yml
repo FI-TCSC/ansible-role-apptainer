@@ -54,3 +54,9 @@ apptainer_manage_init_file: True
 apptainer_init_log: '/usr/bin/logger -t {{ apptainer_init_log_tag }} "{{ apptainer_init_log_message }}"'
 apptainer_init_log_tag: "apptainer"
 apptainer_init_log_message: "user=$USER image=${SINGULARITY_IMAGE:-} image_path=${IMAGE_PATH:-} container=${SINGULARITY_CONTAINER:-} rundir=${SINGULARITY_RUNDIR:-} jobid=${SLURM_JOB_ID:-} cmd=$SINGULARITY_COMMAND"
+apptainer_sysctl_file: "/etc/sysctl.d/90-max_net_namespaces.conf"
+apptainer_sysctl_vars:
+  - variable: user.max_user_namespaces
+    value: 15000
+  - variable: user.max_net_namespaces
+    value: 0

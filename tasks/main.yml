@@ -24,3 +24,11 @@
      owner: root
      mode: 0644
    when: apptainer_manage_init_file|bool
+
+ - name: allow user namespaces
+   sysctl:
+     sysctl_file: "{{ apptainer_sysctl_file }}"
+     name: "{{ item.variable }}"
+     value: "{{ item.value }}"
+     reload: yes
+   with_items: "{{ apptainer_sysctl_vars }}"
